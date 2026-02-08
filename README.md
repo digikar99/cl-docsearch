@@ -1,0 +1,101 @@
+# Docsearch
+
+Docsearch is a tool to search documentation of Common Lisp symbols in the current lisp image. It allows users to
+find relevant symbols and their descriptions based on a search string.
+
+## Installation
+
+1. Install [quicklisp with https support](https://github.com/rudolfochrist/ql-https):
+
+```
+curl https://raw.githubusercontent.com/rudolfochrist/ql-https/master/install.sh | bash
+```
+
+2. Install [ultralisp](https://ultralisp.org):
+
+```
+(ql-dist:install-dist "https://dist.ultralisp.org/" :prompt nil)
+```
+
+3. Install docsearch:
+
+```
+(ql:quickload "docsearch")
+```
+
+## Usage
+
+Docsearch provides a single function `docsearch` that you can use to search for symbols.
+
+### Example
+
+To search for symbols related to "function" in all packages, you would call:
+
+```lisp
+(docsearch:docsearch "alist")
+```
+
+This will print out any symbols and their documentation that contain the word "alist".
+
+To restrict the search to a certain package or packages, supply it as a second argument.
+
+```lisp
+(docsearch:docsearch "alist" :alexandria)
+```
+
+```
+ALEXANDRIA:ALIST-HASH-TABLE
+  Function:
+    Returns a hash table containing the keys and values of the association list
+    ALIST. Hash table is initialized using the HASH-TABLE-INITARGS.
+
+ALEXANDRIA:ASSOC-VALUE
+  Function:
+    ASSOC-VALUE is an alist accessor very much like ASSOC, but it can
+    be used with SETF.
+
+ALEXANDRIA:RASSOC-VALUE
+  Function:
+    RASSOC-VALUE is an alist accessor very much like RASSOC, but it can
+    be used with SETF.
+
+ALEXANDRIA:HASH-TABLE-ALIST
+ALEXANDRIA:PLIST-ALIST
+ALEXANDRIA:ALIST-PLIST
+  Function:
+    Returns a property list containing the same keys and values as the
+    association list ALIST in the same order.
+```
+
+## API Documentation
+
+### Function: `docsearch`
+
+```lisp
+Lambda list: (search-term &optional packages (mode :external) (method *search-function*))
+```
+
+Searches for Lisp symbols based on a given search string.
+
+**Parameters:**
+
+- `search-string` (string or symbol): The term to search for.
+- `packages` (list of strings/packages, optional): List of packages to search within. Defaults to all
+external packages.
+- `mode` (symbol, optional): Whether to search external or internal symbols. Options are `:external` and
+`:internal`. Defaults to `:external`.
+- `method` (function, optional): The function to use for searching documentation strings.
+
+**Returns:**
+
+None
+
+### Variables `*symbol-doc-types*`
+
+A list of types of documentation to search within symbols. TODO: Expand this with in-nomine
+
+### Variable `*search-function*`
+
+The function used by `docsearch` for searching documentation strings. By default this uses `search` with `char-equal`.
+
+
