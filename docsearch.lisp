@@ -25,7 +25,30 @@ It should return one of the following values
   - a string that describes why it is relevant")
 
 (defun docsearch (search-term &optional packages (mode :external) (method *search-function*))
-  "If PACKAGES is a function, it is a predicate that returns whether to search for a particular package."
+  "
+Searches for Lisp symbols based on a given search string.
+
+**Parameters:**
+
+- `search-string` (string or symbol): The term to search for.
+- `packages` (a single package-designator, list of package-designators, or a predicate function, optional): List of packages to search within. Defaults to all packages. If it is a function, it is used to narrow the search to the good packages of `(list-all-packages)`.
+- `mode` (symbol, optional): Whether to search external or internal symbols. Options are `:external` and
+`:internal`. Defaults to `:external`.
+- `method` (function, optional): The function to use for searching documentation strings.
+
+Example `packages` function to search for quicklisp related packages:
+
+```lisp
+(defun ql-package-p (pkg)
+  (let ((name (package-name pkg)))
+    (or (search \"QL\" name)
+        (search \"QUICKLISP\" name))))
+```
+
+```lisp
+(docsearch:docsearch \"dist\" #'ql-package-p)
+```
+"
   (declare (type (or symbol string) search-term)
            (type (or cons function symbol package) packages)
            (type (member :external :internal) mode))
