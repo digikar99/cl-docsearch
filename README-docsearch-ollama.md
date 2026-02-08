@@ -39,12 +39,12 @@ Default configuration:
 
 ## Usage
 
-1. Get a nicely formatted documentation for a symbol (thanks to [more-docstrings](https://github.com/ciel-lang/more-docstrings)!): 
+1. Get a nicely formatted documentation for a symbol (thanks to [more-docstrings](https://github.com/ciel-lang/more-docstrings) for extra information!):
 
     ```lisp
     (symbol-documentation 'mapcar)
     ```
-    
+
     ```lisp
     "COMMON-LISP:MAPCAR
       When it is used as a function, it takes the following arguments: (FUNCTION
@@ -52,11 +52,11 @@ Default configuration:
                                                                         MORE-LISTS)
         Apply FUNCTION to successive tuples of elements of LIST and MORE-LISTS.
         Return list of FUNCTION return values.
-        
+
         For example:
-        
+
         (mapcar #'+ '(1 2 3) '(10 20 30))  ;; => (11 22 33)
-        
+
         (mapcar (lambda (x)
                   (format t \"~a is ~R~&\" x x))
                 '(1 2 3))
@@ -65,7 +65,7 @@ Default configuration:
         2 is two
         3 is three
         (NIL NIL NIL)
-        
+
       "
     ```
 
@@ -80,14 +80,14 @@ Default configuration:
     ```lisp
     (query "How do I remove whitespace from the ends of a string?")
     ```
-    
+
     ```
     COMMON-LISP:STRING-TRIM
-      
+
     COMMON-LISP:STRING-RIGHT-TRIM
-      
+
     COMMON-LISP:STRING-LEFT-TRIM
-      
+
     COMMON-LISP:READ-PRESERVING-WHITESPACE
       When it is used as a function, it takes the following arguments: (&OPTIONAL
                                                                         (STREAM
@@ -100,7 +100,7 @@ Default configuration:
                                                                          NIL))
         Read from STREAM and return the value read, preserving any whitespace
            that followed the object.
-      
+
     COMMON-LISP:CLEAR-INPUT
     ```
 
@@ -109,23 +109,20 @@ Default configuration:
     ```lisp
     (ask "How do I remove whitespace from the ends of a string?")
     ```
-    
-    ```    
-    To remove whitespace from the ends of a string in Common Lisp, you can use the `STRING-TRIM`, `STRING-RIGHT-TRIM`, and `STRING-LEFT-TRIM` functions. These functions respectively trim whitespace from both ends, just the right end, and just the left end of the string.
-    ```
 
+
+    > To remove whitespace from the ends of a string in Common Lisp, you can use the `STRING-TRIM`, `STRING-RIGHT-TRIM`, and `STRING-LEFT-TRIM` functions. These functions respectively trim whitespace from both ends, just the right end, and just the left end of the string.
 
 5. Directly query the Ollama model without referencing any local symbols.
 
     ```lisp
     (ask* "What is the purpose of `mapcar` in Common Lisp?")
     ```
-    
-    ```
-    `mapcar` applies a function to each element of one or more lists and returns a new list containing the results.
-    ```
+
+    > `mapcar` applies a function to each element of one or more lists and returns a new list containing the results.
+
 
 ### Customization
 
 - You can customize the models used for embedding and generating responses by setting `*ollama-model*` and `*ollama-embedding-model*`.
-- Adjust the number of top results returned or filter by similarity threshold using the `:top` and `:threshold` parameters in the `query` function.
+- Adjust the number of top results returned or filter by similarity threshold using the `:top` and `:threshold` parameters in the `query` and `ask` functions.
