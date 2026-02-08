@@ -5,22 +5,28 @@ find relevant symbols and their descriptions based on a search string.
 
 ## Installation
 
-1. Install [quicklisp with https support](https://github.com/rudolfochrist/ql-https):
+1. [quicklisp with https support](https://github.com/rudolfochrist/ql-https):
 
 ```
 curl https://raw.githubusercontent.com/rudolfochrist/ql-https/master/install.sh | bash
 ```
 
-2. Install [ultralisp](https://ultralisp.org):
+2. [ultralisp](https://ultralisp.org):
 
 ```
 (ql-dist:install-dist "https://dist.ultralisp.org/" :prompt nil)
 ```
 
-3. Install docsearch:
+3. [docsearch](https://github.com/digikar99/cl-docstrings):
 
 ```
 (ql:quickload "docsearch")
+```
+
+4. (Optional) [more-docstrings](https://github.com/ciel-lang/more-docstrings):
+
+```
+(ql:quickload "more-docstrings")
 ```
 
 ## Usage
