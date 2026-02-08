@@ -8,4 +8,7 @@
                "shasht"
                "trivial-arguments"
                "uiop")
-  :components ((:file "docsearch-ollama")))
+  :components ((:file "package")
+               (:file "utils")
+               (:file "embeddings")
+               (:file "docsearch-ollama")))
