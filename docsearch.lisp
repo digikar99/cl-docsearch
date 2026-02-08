@@ -25,12 +25,17 @@ It should return one of the following values
   - a string that describes why it is relevant")
 
 (defun docsearch (search-term &optional packages (mode :external) (method *search-function*))
-  (declare (type (member :external :internal) mode))
+  "If PACKAGES is a function, it is a predicate that returns whether to search for a particular package."
+  (declare (type (or symbol string) search-term)
+           (type (or cons function symbol package) packages)
+           (type (member :external :internal) mode))
   (let* ((search-string (etypecase search-term
                           (string search-term)
                           (symbol (symbol-name search-term))))
          (packages (or (cond ((consp packages)
                               packages)
+                             ((functionp packages)
+                              (remove-if-not packages (list-all-packages)))
                              ((not (null packages))
                               (list packages)))
                        (list-all-packages)))
