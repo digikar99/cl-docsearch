@@ -73,6 +73,10 @@ ALEXANDRIA:ALIST-PLIST
     association list ALIST in the same order.
 ```
 
+## Related Projects
+
+- [quicklisp-apropos](https://github.com/mmontone/quicklisp-apropos)
+
 ## API Documentation
 
 ### Function: `docsearch`
