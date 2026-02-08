@@ -1,37 +1,8 @@
 # Docsearch
 
-Docsearch is a tool to search documentation of Common Lisp symbols in the current lisp image. It allows users to
-find relevant symbols and their descriptions based on a search string.
+Search documentation of Common Lisp symbols in the current lisp image for a query string.
 
-## Installation
-
-1. [quicklisp with https support](https://github.com/rudolfochrist/ql-https):
-
-```
-curl https://raw.githubusercontent.com/rudolfochrist/ql-https/master/install.sh | bash
-```
-
-2. [ultralisp](https://ultralisp.org):
-
-```
-(ql-dist:install-dist "https://dist.ultralisp.org/" :prompt nil)
-```
-
-3. [docsearch](https://github.com/digikar99/cl-docstrings):
-
-```
-(ql:quickload "docsearch")
-```
-
-4. (Optional) [more-docstrings](https://github.com/ciel-lang/more-docstrings):
-
-```
-(ql:quickload "more-docstrings")
-```
-
-## Usage
-
-Docsearch provides a single function `docsearch` that you can use to search for symbols.
+The base package and system is pure Common Lisp. An additional system [docsearch-ollama](./README-docsearch-ollama.md) is included for use with ollama.
 
 ### Example
 
@@ -71,6 +42,32 @@ ALEXANDRIA:ALIST-PLIST
   Function:
     Returns a property list containing the same keys and values as the
     association list ALIST in the same order.
+```
+
+## Installation
+
+1. [quicklisp with https support](https://github.com/rudolfochrist/ql-https):
+
+```
+curl https://raw.githubusercontent.com/rudolfochrist/ql-https/master/install.sh | bash
+```
+
+2. [ultralisp](https://ultralisp.org):
+
+```
+(ql-dist:install-dist "https://dist.ultralisp.org/" :prompt nil)
+```
+
+3. [docsearch](https://github.com/digikar99/cl-docstrings):
+
+```
+(ql:quickload "docsearch")
+```
+
+4. (Optional) [more-docstrings](https://github.com/ciel-lang/more-docstrings):
+
+```
+(ql:quickload "more-docstrings")
 ```
 
 ## Related Projects
