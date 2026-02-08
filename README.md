@@ -79,6 +79,14 @@ ALEXANDRIA:ALIST-PLIST
 
 ## API Documentation
 
+### Variables `*symbol-doc-types*`
+
+A list of types of documentation to search within symbols. TODO: Expand this with in-nomine
+
+### Variable `*search-function*`
+
+The function used by `docsearch` for searching documentation strings. By default this uses `search` with `char-equal`.
+
 ### Function: `docsearch`
 
 ```lisp
@@ -111,13 +119,3 @@ Example `packages` function to search for quicklisp related packages:
 **Returns:**
 
 None
-
-### Variables `*symbol-doc-types*`
-
-A list of types of documentation to search within symbols. TODO: Expand this with in-nomine
-
-### Variable `*search-function*`
-
-The function used by `docsearch` for searching documentation strings. By default this uses `search` with `char-equal`.
-
-
