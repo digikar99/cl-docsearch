@@ -33,7 +33,7 @@
                             (nconc (list* "Consider the documentation of the following Common Lisp symbols:"
                                           (string #\newline)
                                           (alexandria:mappend (lambda (s)
-                                                                (list (symbol-documentation s)
+                                                                (list (symbol-documentation (parse-symbol-name s))
                                                                       (string #\newline)
                                                                       (string #\newline)))
                                                               relevant-symbols))
