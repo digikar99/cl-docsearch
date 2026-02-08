@@ -31,7 +31,9 @@ It should return one of the following values
            (type (member :external :internal) mode))
   (let* ((search-string (etypecase search-term
                           (string search-term)
-                          (symbol (symbol-name search-term))))
+                          (symbol (if (null search-term)
+                                      ""
+                                      (symbol-name search-term)))))
          (packages (or (cond ((consp packages)
                               packages)
                              ((functionp packages)
