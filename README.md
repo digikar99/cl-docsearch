@@ -72,6 +72,8 @@ curl https://raw.githubusercontent.com/rudolfochrist/ql-https/master/install.sh 
 
 ## Related Projects
 
+- [cl-livedocs](https://github.com/mmontone/quicklisp-apropos)
+- [quicksearch](https://github.com/tkych/quicksearch)
 - [quicklisp-apropos](https://github.com/mmontone/quicklisp-apropos)
 
 ## API Documentation
